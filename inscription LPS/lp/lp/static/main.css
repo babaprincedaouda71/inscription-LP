@@ -1,0 +1,163 @@
+@charset "utf-8";
+/* #header {
+    border-style: none;
+    width: 800px;
+    height: auto;
+} */
+
+#wrapper {
+    margin-top: 0px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #FFFF;
+    width: 800px;
+}
+
+body {
+    background-color: rgb(172, 186, 199);
+    font-family: Gotham, "Helvetica Neue", "Helvetica", Arial, Helvetica, sans-serif;
+    font-size: 0.9em;
+    text-align: justify;
+    color: #474747;
+}
+
+#footer {
+    text-align: center;
+    font-size: 0.8em;
+    margin-top: 5px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background-color: #ffffff;
+    border-top: thin solid #BBBBBB;
+    clear: both;
+    color: #969696;
+}
+
+/* #nav li {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-size: 1em;
+    list-style-type: none;
+    border-bottom: thin solid #5F5F5F;
+    color: #4C4C4C;
+    left: 0px;
+    list-style-position: inside;
+    margin-left: -10px;
+} */
+
+
+/* #nav li a {
+    text-decoration: none;
+} */
+
+/* #main {
+    width: 560px;
+    float: left;
+    margin-left: 100px;
+    margin-right: 0px;
+    padding-right: 10px;
+} */
+
+
+
+#logo {
+    padding: 10px;
+}
+
+ul.errorlist {
+    margin: 0;
+    padding: 0;
+}
+
+.errorlist li {
+    border: 1px solid red;
+    color: red;
+    background: rgba(255, 0, 0, 0.15);
+    list-style-position: inside;
+    display: block;
+    font-size: 1.2em;
+    margin: 0 0 3px;
+    padding: 4px 5px;
+    text-align: center;
+    border-radius: 3px;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 5px!important;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    border-radius: 3px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: rgb(169,169,169)
+}
+
+input {
+    height: 30px;
+}
+
+.success {
+    background-color: rgba(0, 128, 0, 0.15);
+    padding: 10px;
+    text-align: center;
+    color: green;
+    border: 1px solid green;
+    border-radius: 3px;
+}
+
+/* table{
+    border-color: blue;
+    border-radius: 3px;
+} */
+
+/* #new_inscription{
+    text-align: center;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    background-color: aqua;
+} */
+
+
+/* #login
+{
+    background-color: #c0293b;
+    text-align: center;
+} */
+
+
+
+
+table {
+    border: medium solid #6495ed;
+    border-collapse: collapse;
+    width: 100%;
+    }
+    /* th {
+    font-family: monospace;
+    border: thin solid #6495ed;
+    padding: 5px;
+    background-color: #D0E3FA;
+    } */
+    td {
+    font-family: sans-serif;
+    border: thin solid #6495ed;
+    width: 50%;
+    padding: 5px;
+    text-align: center;
+    background-color: #ffffff;
+    }
+
+    thead {
+        background-color:#2164b6;
+        border: thin solid #6495ed;
+        width: 50%;
+        text-align: center;
+        }
+
+    caption {
+    font-family: sans-serif;
+    width: 100%;
+    border: thin solid #6495ed;
+    }

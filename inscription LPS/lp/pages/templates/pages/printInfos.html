@@ -1,0 +1,209 @@
+{% extends "base.html" %}
+
+{% block title %}
+<title>
+    Infos du candidat
+</title>
+{% endblock title %}
+
+
+{% block header %}
+<div align="center">
+    <h2 id="hi">Récapitulatif des informations du candidat</h2>
+</div>
+{% endblock header %}
+
+{% block section %}
+
+    <table>
+        <thead>
+            <div style="background-color:#1593e7">
+                <h3 align="center"> <p>Informations Personnelles</p> </h3>
+            </div>
+        </thead>
+        <tbody>
+            <tr>
+                <td>CIN ou Passeport</td>
+                <td>{{candidat.cin_passeport}}</td>
+            </tr>
+            <tr>
+                <td>CNE ou Massar</td>
+                <td>{{candidat.cne_massar}}</td>
+            </tr>
+            <tr>
+                <td>Nom</td>
+                <td>{{candidat.nom}}</td>
+            </tr>
+            <tr>
+                <td>Prénoms</td>
+                <td>{{candidat.prenom}}</td>
+            </tr>
+            <tr>
+                <td>Email</td>
+                <td>{{candidat.email}}</td>
+            </tr>
+            <tr>
+                <td>Date de Naissance</td>
+                <td>{{candidat.dateNaissance}}</td>
+            </tr>
+            <tr>
+                <td>Nationalité</td>
+                <td>{{candidat.nationalite.as_value}}</td>
+            </tr>
+            <tr>
+                <td>Telephone 1</td>
+                <td>{{candidat.telephone1}}</td>
+            </tr>
+            <tr>
+                <td>Téléphone 2</td>
+                <td>{{candidat.telephone2}}</td>
+            </tr>
+            <tr>
+                <td>Adresse</td>
+                <td>{{candidat.addresse}}</td>
+            </tr>
+            <tr>
+                <td>Ville de résidence</td>
+                <td>{{candidat.ville}}</td>
+            </tr>
+        </tbody>
+        <tfoot>
+            
+        </tfoot>
+    </table>
+
+    <table>
+        <thead>
+            <div style="background-color:#1593e7">
+                <h3 align="center" bgcolor="blue"> <p>Choix de la licence</p> </h3>
+            </div>
+        </thead>
+        <tr>
+            <td>Licence choisie</td>
+            <td>{{candidat.codeLPChoisie}}</td>
+        </tr>
+        <tfoot>
+    
+        </tfoot>
+    </table>
+
+    <table>
+        <thead>
+            <div style="background-color:#1593e7">
+                <h3 align="center"> <p>Informations sur le BAC</p> </h3>
+            </div>
+        </thead>
+        <tr>
+            <td>Quel est votre type de BAC</td>
+            <td>{{candidat.codeBac}}</td>
+        </tr>
+        <tr>
+            <td>Mention du BAC</td>
+            <td>{{candidat.mentionBac}}</td>
+        </tr>
+        <tr>
+            <td>Année obtention BAC</td>
+            <td>{{candidat.annee_obtenetion_bac}}</td>
+        </tr>
+        <tr>
+            <td>Academie</td>
+            <td>{{candidat.academie}}</td>
+        </tr>
+        <tr>
+            <td>Lycée</td>
+            <td>{{candidat.lycee}}</td>
+        </tr>
+        <tfoot>
+            
+        </tfoot>
+    </table>
+
+    <table>
+        <thead>
+            <div style="background-color:#1593e7">
+                <h3 align="center"> <p>Informations Diplôme BAC + 2</p> </h3>
+            </div>
+        </thead>
+        <tr>
+            <td>Diplôme BAC + 2</td>
+            <td>{{candidat.diplomeBacPlus2}}</td>
+        </tr>
+        <tr>
+            <td>Année obtention diplôme BAC + 2</td>
+            <td>{{candidat.anneeObtentionDiplomeBacPlus2}}</td>
+        </tr>
+        <tr>
+            <td>Etablissement diplôme BAC + 2</td>
+            <td>{{candidat.etablissementDiplomeBacPlus2}}</td>
+        </tr>
+        <tr>
+            <td>Ville diplome BAC + 2</td>
+            <td>{{candidat.villeDiplomeBacPlus2}}</td>
+        </tr>
+        <tr>
+            <td>Spécialité diplôme BAC + 2</td>
+            <td>{{candidat.specialiteDiplome}}</td>
+        </tr>
+        <tr>
+            <td>Dominance du diplôme</td>
+            <td>{{candidat.dominanceDiplome}}</td>
+        </tr>
+        <tfoot>
+            
+        </tfoot>
+    </table>
+
+    <table>
+        <thead>
+            <div style="background-color:#1593e7">
+                <h3 align="center"> <p>Résultats Diplôme BAC + 2</p> </h3>
+            </div>
+        </thead>
+        <tr>
+            <td>Année obtention 1ère année</td>
+            <td>{{candidat.anneeObtention1ereAnnee}}</td>
+        </tr>
+        <tr>
+            <td>Durée obtention diplome</td>
+            <td>{{candidat.dureeObtentionDiplome}}</td>
+        </tr>
+        <tr>
+            <td>Note 1ère année diplome</td>
+            <td>{{candidat.note1ereAnneeDiplome}}</td>
+        </tr>
+        <tr>
+            <td>Note 2ème année diplome</td>
+            <td>{{candidat.note2ereAnneeDiplome}}</td>
+        </tr>
+        <tr>
+            <td>Note obtention diplome</td>
+            <td>{{candidat.noteObtentionDiplome}}</td>
+        </tr>
+        <tr>
+            <td>Note Semestre 1</td>
+            <td>{{candidat.noteSemestre1}}</td>
+        </tr>
+        <tr>
+            <td>Note Semestre 2</td>
+            <td>{{candidat.noteSemestre2}}</td>
+        </tr>
+        <tr>
+            <td>Note Semestre 3</td>
+            <td>{{candidat.noteSemestre3}}</td>
+        </tr>
+        <tr>
+            <td>Note Semestre 4</td>
+            <td>{{candidat.noteSemestre4}}</td>
+        </tr>
+        <tfoot>
+            
+        </tfoot>
+    </table>
+    <div class="form-group" align="center" style="background-color: #1593e7;">
+        <a href="{% url 'pages:modiferInscription' candidat_id=candidat.cin_passeport %}" style="color: black;"><h5>Modifier</h5></a>
+    </div>
+    <div class="form-group" align="center" style="background-color: #1593e7;">
+        <a href="{% url 'pages:home' %}" style="color: black;"><h5>Continuer</h5></a>
+    </div>
+
+{% endblock section %}

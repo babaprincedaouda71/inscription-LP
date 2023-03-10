@@ -1,0 +1,588 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+
+{% block title %}
+<title>
+    Inscription
+</title>
+{% endblock title %}
+
+{% block header %}
+<div>
+    <h2 id="hi" align="center">Préinscription au concours d'accès aux Licences Profesionnelles</h2>
+</div>
+{% endblock header %}
+
+{% block section %}
+
+          <form action="" method="post" id="candidatForm" data-lycees-url ="{% url 'pages:ajax_load_lycees'%}"  role="form" class="contactForm" enctype="multipart/form-data">
+
+          	{% csrf_token %}
+
+
+            <table>
+                
+                <thead>
+                    <div style="background-color:#1593e7">
+                        <h3 align="center"> <p>Informations Personnelles</p> </h3>
+                    </div>
+                </thead>
+                
+                <tr>
+                    <td>
+                        <div class="form-group">
+                            <label><p>CIN</p></label>
+                            {{form2.cin_passeport}}
+                        </div>
+                    </td>
+        
+                    <td>
+                        <div class="form-group">
+                            <label><p>CNE</p></label>
+                            {{ form2.cne_massar }}
+                        </div>
+                    </td>
+                </tr>
+    
+                <tr>
+                    <td>
+                        <div class="form-group">
+                            <label><p>Nom</p></label>
+                            {{ form2.nom }}
+                        </div>
+                    </td>
+
+                    <td>
+                        <div class="form-group">
+                            <label><p>Prenom</p></label>
+                            {{ form2.prenom }}
+                        </div>
+                    </td>
+                </tr>
+    
+    
+                <tr>
+                    <td>
+                        <div class="form-group">
+                            <label><p>Password</p></label>
+                            {{ form2.password }}
+                        </div>
+                    </td>
+        
+        
+                    <td>
+                        <div class="form-group">
+                            <label><p>Date de Naissance</p></label>
+                            {{ form2.dateNaissance }}
+                        </div>
+                    </td>
+                </tr>
+    
+    
+    
+                <tr>
+                    <td>
+                        <div class="form-group date">
+                            <label><p>Nationalité</p></label>
+                            <br>
+                            {{ form2.nationalite }}
+                            <br>
+                        </div>
+                    </td>
+        
+        
+                       <td>
+                        <div class="form-group">
+                            <label><p>Email</p></label>
+                            {{ form2.email }}
+                        </div>
+                       </td>
+                </tr>
+    
+                <tr>
+                    <td>
+                        <div class="form-group genre">
+                            <label><p>Telephone 1</p></label>
+                            {{ form2.telephone1 }}
+                        </div>
+                    </td>
+        
+        
+                      <td>
+                        <div class="form-group genre">
+                            <label><p>Téléphone 2</p></label>
+                            {{ form2.telephone2 }}
+                        </div>
+                      </td>
+                </tr>
+    
+                  <tr>
+                    <td>
+                        <div class="form-group">
+                            <label><p>Adresse</p></label>
+                            {{ form2.addresse}}
+                        </div>
+                    </td>
+                    <td>
+                        <div class="form-group">
+                            <label><p>Ville de résidence</p></label>
+                            {{ form2.ville}}
+                        </div>
+                    </td>
+                  </tr>
+            </table>
+
+
+            <table>
+                <thead>
+                    <div style="background-color:#1593e7">
+                        <h3 align="center"> <p>Choix de la licence</p> </h3>
+                    </div>
+                </thead>
+                <td>
+                    <div class="form-group">
+                        <label><p>Sélectionner une licence</p></label>
+                        {{ form2.codeLPChoisie }}
+                    </div>
+                </td>
+            </table>
+
+
+            <table>
+                <thead>
+                    <div style="background-color:#1593e7">
+                        <h3 align="center"> <p>Informations sur le BAC</p> </h3>
+                    </div>
+                </thead>
+                <tr>
+                    <td>
+                        <div class="form-group">
+                            <label><p>Quel est votre type de BAC</p></label>
+                            {{ form2.codeBac}}
+                        </div>
+                    </td>
+        
+                    <td>
+                        <div class="form-group" id="id_bac">
+                            <label><p>Préciser votre type de BAC</p></label>
+                            <input type="text" name="autre">
+                        </div>
+                    </td>
+                </tr>
+    
+                <tr>
+                    <td>
+                        <div class="form-group">
+                            <label><p>Mention du BAC</p></label>
+                            {{ form2.mentionBac}}
+                        </div>
+                    </td>
+        
+                    <td>
+                        <div class="form-group">
+                            <label><p>Année obtention BAC</p></label>
+                            {{ form2.annee_obtenetion_bac}}
+                        </div>
+                    </td>
+                </tr>
+    
+                <tr>
+                    <td>
+                        <div class="form-group">
+                            <label><p>Academie</p></label>
+                            {{ form2.academie}}
+                        </div>
+                    </td>
+        
+                    <td>
+                        <div class="form-group">
+                            <label><p>Lycée</p></label>
+                            {{ form2.lycee}}
+                        </div>
+                    </td>
+                </tr>
+    
+            </table>
+
+            <table>
+                <thead>
+                    <div style="background-color:#1593e7">
+                        <h3 align="center"> <p>Infos sur Diplôme BAC + 2</p> </h3>
+                    </div>
+                </thead>
+    
+                <tr>
+                    <td>
+                        <div class="form-group">
+                            <label><p>Diplôme BAC + 2</p></label>
+                            {{ form2.diplomeBacPlus2}}
+                        </div>
+                    </td>
+        
+                    <td>
+                        <div class="form-group">
+                            <label><p>Année obtention diplôme BAC + 2</p></label>
+                            {{ form2.anneeObtentionDiplomeBacPlus2}}
+                        </div>
+                    </td>
+                </tr>
+    
+                <tr>
+                    <td>
+                        <div class="form-group">
+                            <label><p>Ville diplôme BAC + 2</p></label>
+                            {{ form2.villeDiplomeBacPlus2}}
+                        </div>
+                    </td>
+        
+                    <td>
+                        <div class="form-group">
+                            <label><p>Etablissement diplome BAC + 2</p></label>
+                            {{ form2.etablissementDiplomeBacPlus2}}
+                        </div>
+                    </td>
+                </tr>
+    
+                <tr>
+                    <td>
+                        <div class="form-group">
+                            <label><p>Spécialité diplôme BAC + 2</p></label>
+                            {{ form2.specialiteDiplome}}
+                        </div>
+                    </td>
+        
+                    <td>
+                        <div class="form-group">
+                            <label><p>Dominance du diplôme</p></label>
+                            {{ form2.dominanceDiplome}}
+                        </div>
+                    </td>
+                </tr>
+            </table>
+
+            <table>
+                <thead>
+                    <div style="background-color:#1593e7">
+                        <h3 align="center"> <p>Résultats Diplôme BAC + 2</p> </h3>
+                    </div>
+                </thead>
+    
+                <tr>
+                    <td>
+                        <div class="form-group">
+                            <label><p>Année obtention 1ère année</p></label>
+                            {{ form2.anneeObtention1ereAnnee}}
+                        </div>
+                    </td>
+        
+                    <td>
+                        <div class="form-group">
+                            <label><p>Durée obtention diplome</p></label>
+                            {{ form2.dureeObtentionDiplome}}
+                        </div>
+                    </td>
+                </tr>
+    
+                <tr>
+                    <td>
+                        <div class="form-group">
+                            <label><p>Note 1ère année diplome</p></label>
+                            {{ form2.note1ereAnneeDiplome}}
+                        </div>
+                    </td>
+        
+                    <td>
+                        <div class="form-group">
+                            <label><p>Note 2ème année diplome</p></label>
+                            {{ form2.note2ereAnneeDiplome}}
+                        </div>
+                    </td>
+        
+                </tr>
+                <tr>
+                    <td>
+                        <div class="form-group">
+                            <label><p>Note obtention diplome</p></label>
+                            {{ form2.noteObtentionDiplome}}
+                        </div>
+                    </td>
+                </tr>
+    
+                <tr>
+                    <td>
+                        <div class="form-group">
+                            <label><p>Note Semestre 1</p></label>
+                            {{ form2.noteSemestre1}}
+                        </div>
+                    </td>
+        
+                    <td>
+                        <div class="form-group">
+                            <label><p>Note Semestre 2</p></label>
+                            {{ form2.noteSemestre2}}
+                        </div>
+                    </td>
+                </tr>
+    
+                <tr>
+                    <td>
+                        <div class="form-group">
+                            <label><p>Note Semestre 3</p></label>
+                            {{ form2.noteSemestre3}}
+                        </div>
+                    </td>
+        
+                    <td>
+                        <div class="form-group">
+                            <label><p>Note Semestre 4</p></label>
+                            {{ form2.noteSemestre4}}
+                        </div>
+                    </td>
+                </tr>
+            </table>
+            <div class="text-center"><button type="submit" name="submit" class="btn btn-primary btn-lg">S'inscrire</button></div>
+
+          </form>
+
+
+          <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+          <script>
+              $("#id_academie").change(function () {
+                  const url = $("#candidatForm").attr("data-lycees-url");  // get the url of the `load_cities` view
+                  const academieId = $(this).val();  // get the selected country ID from the HTML input
+          
+                  $.ajax({                       // initialize an AJAX request
+                      url: url,                    // set the url of the request (= /persons/ajax/load-cities/ )
+                      data: {
+                          'academie_id': academieId       // add the country id to the GET parameters
+                      },
+                      success: function (data) {   // `data` is the return of the `load_cities` view function
+                          $("#id_lycee").html(data);  // replace the contents of the city input with the data that came from the server
+                          
+                      }
+                  });
+          
+              });
+
+            </script>
+
+
+<!-- <script>
+    var select = document.getElementById("id_academie");
+    var select2 = document.getElementById("id_lycee");
+    var length = select.options.length;
+    var lengtth = select2.options.length;
+
+    for( i = length-1 ; i >= 0 ; i--) {
+        select.options[i] = null;
+    }
+
+    for( i = lengtth-1 ; i >= 0 ; i--) {
+        select2.options[i] = null;
+    }
+</script> -->
+
+
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+          <script>
+              $("#id_codeLPChoisie").change(function () {
+                //   const url = $("#candidatForm").attr("data-lycees-url");  // get the url of the `load_cities` view
+                  const lpId = $(this).val();  // get the selected country ID from the HTML input
+          
+                  $.ajax({                       // initialize an AJAX request
+                      url: '/get_lp_data/',                    // set the url of the request (= /persons/ajax/load-cities/ )
+                      data: {
+                          'lp_id': lpId       // add the country id to the GET parameters
+                      },
+                      success: function (data) {   // `data` is the return of the `load_cities` view function
+                          $("#id_codeBac").html(data);  // replace the contents of the city input with the data that came from the server
+                          
+                      }
+                  });
+          
+              });
+
+            </script>
+
+
+<!-- <script>
+    var select1 = document.getElementById("id_codeLPChoisie");
+    var select2 = document.getElementById("id_codeBac");
+    var length1= select1.options.length;
+    var lengtth1= select2.options.length;
+
+    for( i = length1-1 ; i >= 0 ; i--) {
+        select1.options[i] = null;
+    }
+
+    for( i = lengtth1-1 ; i >= 0 ; i--) {
+        select2.options[i] = null;
+    }
+</script> -->
+
+
+
+
+
+
+
+
+
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+          <script>
+              $("#id_codeLPChoisie").change(function () {
+                //   const url = $("#candidatForm").attr("data-lycees-url");  // get the url of the `load_cities` view
+                  const lpId = $(this).val();  // get the selected country ID from the HTML input
+          
+                  $.ajax({                       // initialize an AJAX request
+                      url: '/get_dip_data/',                    // set the url of the request (= /persons/ajax/load-cities/ )
+                      data: {
+                          'lp_id': lpId       // add the country id to the GET parameters
+                      },
+                      success: function (data) {   // `data` is the return of the `load_cities` view function
+                          $("#id_diplomeBacPlus2").html(data);  // replace the contents of the city input with the data that came from the server
+                          
+                      }
+                  });
+          
+              });
+
+            </script>
+
+
+<!-- <script>
+    var select = document.getElementById("id_academie");
+    var select2 = document.getElementById("id_lycee");
+    var length = select.options.length;
+    var lengtth = select2.options.length;
+
+    for( i = length-1 ; i >= 0 ; i--) {
+        select.options[i] = null;
+    }
+
+    for( i = lengtth-1 ; i >= 0 ; i--) {
+        select2.options[i] = null;
+    }
+</script> -->
+
+
+
+
+
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+          <script>
+              $("#id_villeDiplomeBacPlus2").change(function () {
+                //   const url = $("#candidatForm").attr("data-lycees-url");  // get the url of the `load_cities` view
+                  const villeId = $(this).val();  // get the selected country ID from the HTML input
+          
+                  $.ajax({                       // initialize an AJAX request
+                      url: '/get_eta_data/',                    // set the url of the request (= /persons/ajax/load-cities/ )
+                      data: {
+                          'ville_id': villeId       // add the country id to the GET parameters
+                      },
+                      success: function (data) {   // `data` is the return of the `load_cities` view function
+                          $("#id_etablissementDiplomeBacPlus2").html(data);  // replace the contents of the city input with the data that came from the server
+                          
+                      }
+                  });
+          
+              });
+
+            </script>
+
+
+<!-- <script>
+    var select = document.getElementById("id_academie");
+    var select2 = document.getElementById("id_lycee");
+    var length = select.options.length;
+    var lengtth = select2.options.length;
+
+    for( i = length-1 ; i >= 0 ; i--) {
+        select.options[i] = null;
+    }
+
+    for( i = lengtth-1 ; i >= 0 ; i--) {
+        select2.options[i] = null;
+    }
+</script> -->
+
+
+
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" src=" https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.js"></script> 
+
+<script>$(function() {
+    $("#id_dominanceDiplome").hide();
+    $("#id_note1ereAnneeDiplome").hide();
+    $("#id_note2ereAnneeDiplome").hide();
+    $("#id_noteObtentionDiplome").hide();
+    $("#id_noteSemestre1").hide();
+    $("#id_noteSemestre2").hide();
+    $("#id_noteSemestre3").hide();
+    $("#id_noteSemestre4").hide();
+    $("#id_bac").hide();
+
+    $("#id_codeLPChoisie").change(function()
+        {
+            ($(this).val() == "MT") ? 
+            $("#id_dominanceDiplome").show() : $("#id_dominanceDiplome").hide();
+        });
+        
+    $("#id_diplomeBacPlus2").change(function()
+    
+        {
+            if ($(this).val()  == "DUT" || $(this).val() == "BTS")
+            {
+                $("#id_note1ereAnneeDiplome").show();
+                $("#id_note2ereAnneeDiplome").show();
+            }
+
+            else
+            {
+                $("#id_note1ereAnneeDiplome").hide();
+                $("#id_note2ereAnneeDiplome").hide();
+            }
+
+            ($(this).val()  == "DTS") ?
+                $("#id_noteObtentionDiplome").show() : $("#id_noteObtentionDiplome").hide();
+
+            
+                if ($(this).val()  == "DEUG" || $(this).val() == "DEUST" || $(this).val() == "DEUT")
+            {
+                $("#id_noteSemestre1").show();
+                $("#id_noteSemestre2").show();
+                $("#id_noteSemestre3").show();
+                $("#id_noteSemestre4").show();
+            }
+
+            else
+            {
+                $("#id_noteSemestre1").hide();
+                $("#id_noteSemestre2").hide();
+                $("#id_noteSemestre3").hide();
+                $("#id_noteSemestre4").hide();
+            }
+        });
+
+        $("#id_codeBac").change(function()
+
+        {
+            ($(this).val() == "Autre") ? 
+                $("#id_bac").show() : $("#id_bac").hide();
+        }
+        
+        );
+    
+        
+        });
+</script>
+
+{% endblock section %}

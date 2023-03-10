@@ -1,0 +1,44 @@
+{% load static %}
+{% load crispy_forms_tags %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% block title %}
+    <title>
+        Accueil
+    </title>
+    {% endblock title %}
+    <link href="{% static 'main.css' %}" rel="stylesheet" type="text/css">
+</head>
+<body>
+    <div id="wrapper">
+        <header id="header">  
+            <div id="logo">
+                <img src="" alt="">
+            </div>
+            <div id="topbanner">
+                <img src="{% static 'estc.jpg' %}" width="800" height="200" alt="">
+            </div>
+        </header>
+        <section id="main">
+            {% block header %}
+            <h1 id="hi">Mise à jour des informations d'une ancienne inscription</h1>
+            {% endblock header %}
+
+            {% block section %}
+            <form action="" method="post">
+                {% csrf_token %}
+                {{ form }}
+                <input type="submit" value="Valider">
+            </form>
+            {% endblock section %}
+        </section>
+        <footer id="footer">
+            Copyright &copy; 2021 BabaPrince WebDesign
+        </footer>
+    </div>
+</body>
+</html>

@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block title %}
+<title>
+    Login
+</title>
+{% endblock title %}
+
+{% block header %}
+<div style="background-color:#1593e7">
+    <h1 id="new_inscription" align="center">Connexion</h1>
+</div>
+{% endblock header %}
+
+{% block section %}
+    <div class="content-section">
+       {% if error1 %}
+          <div class="alert alert-danger text-center">Ce compte est desactiver</div>
+          {% endif %}
+
+          {% if error2 %}
+          <div class="alert alert-danger text-center" id="login ">CIN ou mot de passe est incorrecte</div>
+          {% endif %}
+
+        <form method="POST">
+            {% csrf_token %}
+            <fieldset class="form-group">
+                <legend class="border-bottom mb-4"></legend>
+                    <div align="center">
+                        {{ form|crispy }}
+                    </div>
+            </fieldset>
+            <div class="form-group">
+                <input type="submit" value="Se connecter">
+            </div>
+            <div class="form-group" align="center" style="background-color: #1593e7;">
+                <a href="{% url 'pages:checkmail' %}" style="color: black;"><h5>Vérifier ses informations</h5></a>
+            </div>
+            <div class="form-group" align="center" style="background-color: #1593e7;">
+                <a href="{% url 'password_reset' %}" style="color: black;"><h5>Mot de passe oublié</h5></a>
+            </div>
+        </form>
+    </div>
+{% endblock section %}

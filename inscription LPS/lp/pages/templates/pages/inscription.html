@@ -1,0 +1,135 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+
+{% block title %}
+<title>
+    Inscription
+</title>
+{% endblock title %}
+
+{% block header %}
+<h1 id="new_inscription">Nouvelle Inscription</h1>
+{% endblock header %}
+
+{% block section %}
+
+<form action="{% url 'pages:inscription' %}" method="post" id="candidatForm" data-lycees-url ="{% url 'pages:ajax_load_lycees' %}" enctype="multipart/form-data" novalidate>
+    {% csrf_token %}
+    <div>
+        {{form.as_p}}
+    </div>
+    <input type="submit" value="Valider">
+</form>
+
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script>
+    $("#id_academie").change(function () {
+        const url = $("#candidatForm").attr("data-lycees-url");  // get the url of the `load_cities` view
+        const academieId = $(this).val();  // get the selected country ID from the HTML input
+
+        $.ajax({                       // initialize an AJAX request
+            url: url,                    // set the url of the request (= /persons/ajax/load-cities/ )
+            data: {
+                'academie_id': academieId       // add the country id to the GET parameters
+            },
+            success: function (data) {   // `data` is the return of the `load_cities` view function
+                $("#id_lycee").html(data);  // replace the contents of the city input with the data that came from the server
+                /*
+                let html_data = '<option value="">---------</option>';
+                data.forEach(function (city) {
+                    html_data += `<option value="${city.id}">${city.name}</option>`
+                });
+                console.log(html_data);
+                $("#id_city").html(html_data);
+                */
+            }
+        });
+
+    });
+</script>
+
+
+<script>
+    var select = document.getElementById("id_academie");
+    var select = document.getElementById("id_lycee");
+    var length= select.options.length;
+    var lengtth= select2.options.length;
+
+    for( i = length-1 ; i >= 0 ; i--) {
+        select.options[i] = null;
+    }
+
+    for( i = lengtth-1 ; i >= 0 ; i--) {
+        select2.options[i] = null;
+    }
+</script>
+
+<script type="text/javascript" src=" https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.js"></script> 
+
+<script>$(function() {
+    $("#id_dominanceDiplome").hide();
+    $("#id_note1ereAnneeDiplome").hide();
+    $("#id_note2ereAnneeDiplome").hide();
+    $("#id_noteObtentionDiplome").hide();
+    $("#id_noteSemestre1").hide();
+    $("#id_noteSemestre2").hide();
+    $("#id_noteSemestre3").hide();
+    $("#id_noteSemestre4").hide();
+    $("#other_diplome").hide();
+
+    $("#id_codeLPChoisie").change(function()
+        {
+            ($(this).val() == "MT") ? 
+            $("#id_dominanceDiplome").show() : $("#id_dominanceDiplome").hide();
+        });
+        
+    $("#id_diplomeBacPlus2").change(function()
+    
+        {
+            if ($(this).val()  == "DUT" || $(this).val() == "BTS")
+            {
+                $("#id_note1ereAnneeDiplome").show();
+                $("#id_note2ereAnneeDiplome").show();
+            }
+
+            else
+            {
+                $("#id_note1ereAnneeDiplome").hide();
+                $("#id_note2ereAnneeDiplome").hide();
+            }
+
+            ($(this).val()  == "DTS") ?
+                $("#id_noteObtentionDiplome").show() : $("#id_noteObtentionDiplome").hide();
+
+            
+                if ($(this).val()  == "DEUG" || $(this).val() == "DEUST" || $(this).val() == "DEUT")
+            {
+                $("#id_noteSemestre1").show();
+                $("#id_noteSemestre2").show();
+                $("#id_noteSemestre3").show();
+                $("#id_noteSemestre4").show();
+            }
+
+            else
+            {
+                $("#id_noteSemestre1").hide();
+                $("#id_noteSemestre2").hide();
+                $("#id_noteSemestre3").hide();
+                $("#id_noteSemestre4").hide();
+            }
+        });
+
+        $("#id_codeBac").change(function()
+
+        {
+            ($(this).val() == "Autre") ? 
+                $("#other_diplome").show() : $("#other_diplome").hide();
+        }
+        
+        );
+    
+        
+        });
+</script>
+
+{% endblock section %}

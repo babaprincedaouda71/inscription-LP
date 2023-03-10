@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="post">
+        <div>
+            {{form.num}}
+        </div>
+        <div>
+            {{form.nom}}
+        </div>
+        <div class="item">
+            {{form.cars}}
+        </div>
+        <div>
+            {{form.model}}
+        </div>
+    </form>
+</body>
+
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script type="text/javascript" src=" https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.js"></script> 
+
+<script>
+    // cars-json
+    $.ajax({
+        type: 'GET',
+        url: '/cars-json/',
+        success: function(response){
+            console.log(response.data)
+            const carsData = response.data
+            carsData.map(item=>{
+                const option = document.createElement('div')
+                option.textContent = item.name
+                option.setAttribute('class', 'item')
+                option.setAttribute('data-value', item.name)
+                carsDataBox.appendChild(option)
+            })
+        },
+
+        error: function(error){
+            console.log(error)
+        }
+    })
+</script>
+
+</html>
